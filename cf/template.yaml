@@ -16,3 +16,11 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: !Ref IndexDocument
         ErrorDocument: !Ref IndexDocument
+
+Outputs:
+  S3WebsiteURL:
+    Description: Website URL
+    Value: !GetAtt MyS3Bucket.WebsiteURL
+  S3BucketName:
+    Description: Bucket Name
+    Value: !Ref MyS3Bucket
