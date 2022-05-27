@@ -5,4 +5,7 @@ Resources:
     Type: 'AWS::S3::Bucket'
     # DeletionPolicy: Retain
     Properties:
-      BucketName: my-upb-bucket-1111111
+      BucketName: my-upb-bucket-1111111234
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
