@@ -1,6 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
 Resources:
+  # aws cloudformation create-change-set --stack-name upb-stack --change-set-name bucketNameChange2 --template-body file://cf/template.yaml
+  # aws cloudformation deploy --template-file cf/template.yaml --stack-name upb-stack
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     # DeletionPolicy: Retain
