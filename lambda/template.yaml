@@ -38,3 +38,7 @@ Resources:
                   - "logs:CreateLogStream"
                   - "logs:PutLogEvents"
                 Resource: '*'
+              - Effect: Allow
+                Action:
+                  - "s3:ListAllMyBuckets"
+                Resource: '*'

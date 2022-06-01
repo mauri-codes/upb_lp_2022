@@ -38,8 +38,8 @@ esac
 
 if [[ $i -eq 1 ]]; then
   echo "installation step"
-#   pip install -r requirements.txt -t build
-#   cp -r src/. build
+  pip install -r requirements.txt -t build
+  cp -r src/. build
 fi
 
 if [[ $b -eq 1 ]]; then
