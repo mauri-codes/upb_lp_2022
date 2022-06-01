@@ -7,40 +7,34 @@ Resources:
   MyLambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: upb-lambda
       Handler: app.lambda_handler
       Runtime: python3.6
       CodeUri: build
+      Role: !GetAtt LambdaRole.Arn
+      
 
-  # MyLambdaFunction:
-  #   Type: AWS::Lambda::Function
-  #   Properties:
-  #     Runtime: nodejs12.x
-  #     Role: arn:aws:iam::123456789012:role/lambda-role
-  #     Handler: app.lambda_handler
-  #     Code:
-  #       ZipFile: |
-  #         var aws = require('aws-sdk')
-  #         var response = require('cfn-response')
-  #         exports.handler = function(event, context) {
-  #             console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
-  #             // For Delete requests, immediately send a SUCCESS response.
-  #             if (event.RequestType == "Delete") {
-  #                 response.send(event, context, "SUCCESS")
-  #                 return
-  #             }
-  #             var responseStatus = "FAILED"
-  #             var responseData = {}
-  #             var functionName = event.ResourceProperties.FunctionName
-  #             var lambda = new aws.Lambda()
-  #             lambda.invoke({ FunctionName: functionName }, function(err, invokeResult) {
-  #                 if (err) {
-  #                     responseData = {Error: "Invoke call failed"}
-  #                     console.log(responseData.Error + ":\n", err)
-  #                 }
-  #                 else responseStatus = "SUCCESS"
-  #                 response.send(event, context, responseStatus, responseData)
-  #             })
-  #         }
-  #     Description: Invoke a function during stack creation.
-  #     TracingConfig:
-  #       Mode: Active
+  LambdaRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: upb-lambda-role-2
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                Resource: '*'
