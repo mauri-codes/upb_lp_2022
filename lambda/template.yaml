@@ -9,7 +9,7 @@ Resources:
     Properties:
       FunctionName: upb-lambda
       Handler: app.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.8
       CodeUri: build
       # Role: !GetAtt LambdaRole.Arn
       Policies:
