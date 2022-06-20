@@ -4,7 +4,8 @@ phases:
   install:
     commands:
       - python --version
-      - ./db_api/deploy.sh -i
+      - cd db_api
+      - ./deploy.sh -i
   build:
     commands:
       - cd db_api
