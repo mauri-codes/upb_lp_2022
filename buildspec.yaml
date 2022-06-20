@@ -8,7 +8,6 @@ phases:
       - ./deploy.sh -i
   build:
     commands:
-      - cd db_api
       - ./deploy.sh -b
   post_build:
     commands:
