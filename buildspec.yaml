@@ -3,10 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
+      - python --version
       - ./db_api/deploy.sh -i
   build:
     commands:
-      - ./db_api/deploy.sh -b
+      - cd db_api
+      - ./deploy.sh -b
   post_build:
     commands:
       - ./db_api/deploy.sh -d
