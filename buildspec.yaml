@@ -13,4 +13,4 @@ phases:
   post_build:
     commands:
       - ./deploy.sh -d
-      - echo hi worldd
+      - echo hi world
