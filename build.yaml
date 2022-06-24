@@ -11,5 +11,11 @@ phases:
 
 artifacts:
   files:
-    - db_api/packaged-template.yaml
-  name: PackagedTemplate
+    - db_api/**/*
+  name: BuildArtifact
+  # secondary-artifacts:
+  #   artifact1:
+  #   name:
+  #     files:
+  #       - 
+  #     discard-paths: yes
