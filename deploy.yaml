@@ -4,4 +4,3 @@ phases:
   build:
     commands:
       - echo "deploy step"
-      - ls
