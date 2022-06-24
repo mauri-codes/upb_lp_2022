@@ -8,3 +8,8 @@ phases:
   build:
     commands:
       - ./deploy.sh -b
+
+artifacts:
+  files:
+    - db_api/packaged-template.yaml
+  name: PackagedTemplate
