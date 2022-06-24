@@ -53,6 +53,6 @@ if [[ $d -eq 1 ]]; then
   aws cloudformation deploy \
     --no-fail-on-empty-changeset \
     --template-file $PACKAGED_TEMPLATE \
-    --stack-name pet-stack \
+    --stack-name pet-stack2 \
     --capabilities CAPABILITY_NAMED_IAM
 fi

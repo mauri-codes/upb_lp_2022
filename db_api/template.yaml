@@ -23,13 +23,13 @@ Resources:
       ProvisionedThroughput: 
         ReadCapacityUnits: "5"
         WriteCapacityUnits: "5"
-      TableName: "petStore"
+      TableName: "petStore2"
     
   PetApi:
     Type: AWS::Serverless::Api
     Properties:
       StageName: prod
-      Name: pet-api
+      Name: pet-api2
       DefinitionBody:
         'Fn::Transform':
           Name: 'AWS::Include'
@@ -39,7 +39,7 @@ Resources:
   Adopt:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: adopt
+      FunctionName: adopt2
       Handler: app.adopt
       Runtime: python3.7
       CodeUri: build
@@ -57,7 +57,7 @@ Resources:
   AdoptedByOwner:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: adopted_by_owner
+      FunctionName: adopted_by_owner2
       Handler: app.adopted_by_owner
       Runtime: python3.7
       CodeUri: build
@@ -79,7 +79,7 @@ Resources:
   AdoptedByYear:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: adopted_by_year
+      FunctionName: adopted_by_year2
       Handler: app.adopted_by_year
       Runtime: python3.7
       CodeUri: build
